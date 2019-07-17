@@ -1,16 +1,4 @@
-
-use test2;
-DROP TABLE IF EXISTS task;
-CREATE TABLE task(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    description VARCHAR(45),
-    for_person VARCHAR(45),
-    from_person VARCHAR(45),
-    status VARCHAR(45));
-ALTER TABLE `task` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-
 INSERT INTO task (`description`, `for_person`, `from_person`, `status`) VALUES ('Заявка 1', 'Василий Обломов', 'Петр Шмель', 'Срочно'),
                                                                 ('Заявка 2', 'Илья Огурцов', 'Василий Обломов', 'Несрочно'),
                                                                 ('Заявка 3', 'Екатерина Петрова', 'Петр Шмель', 'В процессе'),
                                                                 ('Заявка 4', 'Василий Обломов', 'Катя Петрова', 'В процессе');
-
