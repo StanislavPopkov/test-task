@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+
+</head>
+<body>
+
+<form th:action="@{/task/edit(id=${task.id})}" th:object="${task}" th:method="post">
+    <table>
+        <tr>
+            <td><label>Description</label></td>
+            <td><input type="text" th:field="*{description}" /></td>
+        </tr>
+        <tr>
+            <td><label>To</label></td>
+            <td><input type="text" th:field="*{for_person}" /></td>
+        </tr>
+        <tr>
+            <td><label>From</label></td>
+            <td><input type="text" th:field="*{from_person}" /></td>
+        </tr>
+        <tr>
+            <td><label>Status</label></td>
+            <td><input type="text" th:field="*{status}" /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>
