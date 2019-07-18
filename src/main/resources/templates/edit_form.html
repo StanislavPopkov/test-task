@@ -4,30 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
 
-<form th:action="@{/task/edit(id=${task.id})}" th:object="${task}" th:method="post">
-    <table>
-        <tr>
-            <td><label>Description</label></td>
-            <td><input type="text" th:field="*{description}" /></td>
-        </tr>
-        <tr>
-            <td><label>To</label></td>
-            <td><input type="text" th:field="*{for_person}" /></td>
-        </tr>
-        <tr>
-            <td><label>From</label></td>
-            <td><input type="text" th:field="*{from_person}" /></td>
-        </tr>
-        <tr>
-            <td><label>Status</label></td>
-            <td><input type="text" th:field="*{status}" /></td>
-        </tr>
-    </table>
-    <input type="submit" value="Update"/>
-</form>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Edit task</h2>
+    <div>
+        <form class="form-horizontal" th:object="${task}" th:action="@{/task/edit(id=${task.id})}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" required="true" class="form-control" th:field="*{description}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">To:</label>
+                <div class="col-sm-10">
+                    <input type="text" required="true" class="form-control" th:field="*{for_person}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">From:</label>
+                <div class="col-sm-10">
+                    <input type="text" required="true" class="form-control" th:field="*{from_person}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Status:</label>
+                <div class="col-sm-10">
+                    <input type="text" required="true" class="form-control" th:field="*{status}"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
